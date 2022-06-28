@@ -10,7 +10,7 @@ export default function App() {
           <Dictionary />
         </main>
 
-        <footer>
+        <footer className="mt-3">
           This app was coded by <a href="https://mnewman.io">MNewman</a> and is{" "}
           <a href="https://github.com/NewmanSaurusRex/react-dictionary-app">
             open sourced on GitHub
