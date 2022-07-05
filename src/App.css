@@ -6,6 +6,12 @@ a {
   color: #fc3a52;
 }
 
+.App {
+  padding: 60px 0 100px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .App-header {
   margin: 30px 0;
 }
