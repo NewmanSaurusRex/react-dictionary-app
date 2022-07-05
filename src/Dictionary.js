@@ -15,7 +15,7 @@ export default function Dictionary(props) {
   }
 
   function handlePexelsReponse(response) {
-    setResults(response.data.photos);
+    setPhotos(response.data.photos);
   }
 
   function search() {
@@ -33,39 +33,41 @@ export default function Dictionary(props) {
     event.preventDefault();
     search();
   }
-}
 
-function handleKeywordChange(event) {
-  setKeyword(event.target.value);
-}
+  function handleKeywordChange(event) {
+    setKeyword(event.target.value);
+  }
 
-function load() {
-  setLoaded(true);
-  search();
-}
+  function load() {
+    setLoaded(true);
+    search();
+  }
 
-if (loaded) {
-  return (
-    <div className="Dictionary">
-      <section>
-        <h1>What word would you like to look up?</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="search"
-            className="form-control"
-            placeholder="Enter a word..."
-            autoFocus="on"
-            onChange={handleKeywordChange}
-            defaultValue={props.defaultKeyword}
-          />
-        </form>
-        <div className="hint">Suggested Words: Pizza, Cake, Planet, Epic, </div>
-      </section>
-      <Results results={results} />
-      <Photos photos={photos} />
-    </div>
-  );
-} else {
-  load();
-  return "Loading...";
+  if (loaded) {
+    return (
+      <div className="Dictionary">
+        <section>
+          <h1>What word would you like to look up?</h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Enter a word..."
+              autoFocus="on"
+              onChange={handleKeywordChange}
+              defaultValue={props.defaultKeyword}
+            />
+          </form>
+          <div className="hint">
+            Suggested Words: Pizza, Cake, Planet, Epic,{" "}
+          </div>
+        </section>
+        <Results results={results} />
+        <Photos photos={photos} />
+      </div>
+    );
+  } else {
+    load();
+    return "Loading...";
+  }
 }
